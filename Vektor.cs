@@ -116,6 +116,62 @@ namespace Karesz
 		static int intervallumba(int b, int x, int j) => Math.Min(Math.Max(b, x), j);
 		public static Vektor dobozba(Vektor ba, Vektor v, Vektor jf) => new Vektor(intervallumba(ba.X, v.X, jf.X), intervallumba(ba.Y, v.Y, jf.Y));
 
+		public bool Téglalapban_van(Vektor bf, Vektor jl) => bf.X <= this.X && this.X <= jl.X && bf.Y <= this.Y && this.Y <= jl.Y;
+
+		public static List<Vektor> Rács(Vektor bf, Vektor jl)
+		{
+			Vektor átló = jl - bf;
+			List<Vektor> mezők = new List<Vektor>((átló.X + 1) * (átló.Y + 1));
+
+			for (int x = 0; x <= 40; x++)
+			{
+				for (int y = 0; y <= 30; y++)
+				{
+					mezők.Add(new Vektor(x, y));
+				}
+			}
+
+			return mezők;
+		}
+
+		public static List<Vektor> FüggőlegesenVízszintesen(Vektor innen, Vektor ide)
+		{
+			Vektor vx = new Vektor(ide.X - innen.X, 0);
+			Vektor vy = new Vektor(0, ide.Y - innen.Y);
+			List<Vektor> útvonal = new List<Vektor>();
+			Vektor itt = new Vektor(innen);
+			while (itt.Y != ide.Y)
+			{
+				útvonal.Add(itt);
+				itt += vy;
+			}
+			while (itt.X != ide.X)
+			{
+				útvonal.Add(itt);
+				itt += vx;
+			}
+			return útvonal;
+		}
+
+		public static List<Vektor> VízszintesenFüggőlegesen(Vektor innen, Vektor ide)
+		{
+			Vektor vx = new Vektor(ide.X - innen.X, 0);
+			Vektor vy = new Vektor(0, ide.Y - innen.Y);
+			List<Vektor> útvonal = new List<Vektor>();
+			Vektor itt = new Vektor(innen);
+			while (itt.X != ide.X)
+			{
+				útvonal.Add(new Vektor(itt));
+				itt += vx;
+			} 
+			while (itt.Y != ide.Y)
+			{
+				útvonal.Add(new Vektor(itt));
+				itt += vy;
+			}
+			return útvonal;
+		}
+
 		#endregion
 	}
 }
