@@ -142,12 +142,12 @@ namespace Karesz
 			Vektor itt = new Vektor(innen);
 			while (itt.Y != ide.Y)
 			{
-				útvonal.Add(itt);
+				útvonal.Add(new Vektor(itt));
 				itt += vy;
 			}
 			while (itt.X != ide.X)
 			{
-				útvonal.Add(itt);
+				útvonal.Add(new Vektor(itt));
 				itt += vx;
 			}
 			return útvonal;
