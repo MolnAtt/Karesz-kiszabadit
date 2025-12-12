@@ -134,10 +134,10 @@ namespace Karesz
 			return mezők;
 		}
 
-		public static List<Vektor> FüggőlegesenVízszintesen(Vektor innen, Vektor ide)
+		public static List<Vektor> Cikk(Vektor innen, Vektor ide)
 		{
-			Vektor vx = new Vektor(ide.X - innen.X, 0);
-			Vektor vy = new Vektor(0, ide.Y - innen.Y);
+			Vektor vx = new Vektor(Math.Sign(ide.X - innen.X), 0);
+			Vektor vy = new Vektor(0, Math.Sign(ide.Y - innen.Y));
 			List<Vektor> útvonal = new List<Vektor>();
 			Vektor itt = new Vektor(innen);
 			while (itt.Y != ide.Y)
@@ -150,10 +150,11 @@ namespace Karesz
 				útvonal.Add(new Vektor(itt));
 				itt += vx;
 			}
+			útvonal.Add(new Vektor(itt));
 			return útvonal;
 		}
 
-		public static List<Vektor> VízszintesenFüggőlegesen(Vektor innen, Vektor ide)
+		public static List<Vektor> Cakk(Vektor innen, Vektor ide)
 		{
 			Vektor vx = new Vektor(ide.X - innen.X, 0);
 			Vektor vy = new Vektor(0, ide.Y - innen.Y);

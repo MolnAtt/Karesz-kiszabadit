@@ -25,6 +25,5 @@ namespace Karesz
 				(list[n], list[k]) = (list[k], list[n]);
 			}
 		}
-
 	}
 }

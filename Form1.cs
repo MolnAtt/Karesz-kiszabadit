@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.ComponentModel.Design.Serialization;
 
 
 namespace Karesz
@@ -23,7 +24,6 @@ namespace Karesz
 			Robot.Get("Karesz").Feladat = delegate ()
 			{
 				// IDE ÍRD AZ UTASÍTÁSOKAT!
-				
 			};
 		}
 
