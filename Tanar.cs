@@ -14,7 +14,7 @@ namespace Karesz
 	{
 		static Random r = new Random();
 		string betöltendő_pálya = "kiszabadit.txt";
-		void Türelmesen_Lépj(Robot r, int db)
+		void Türelmesen_Lépj(Robot2 r, int db)
 		{
 			while(0 < db)
 			{
@@ -29,7 +29,7 @@ namespace Karesz
 				}
 			}
 		}
-		void Körbemegy(Robot r)
+		void Körbemegy(Robot2 r)
 		{
 			for (int i = 0; i < 4; i++)
 			{
@@ -38,7 +38,7 @@ namespace Karesz
 				Türelmesen_Lépj(r, 3);
 			}
 		}
-		void Félkör(Robot r)
+		void Félkör(Robot2 r)
 		{
 			Türelmesen_Lépj(r, 18);
 			r.Fordulj(balra);
@@ -75,9 +75,9 @@ namespace Karesz
 				pálya.LegyenItt(p, fekete);
 			}
 
-			Robot karesz = new Robot("Karesz", 0, 0, 0, 0, 0, 39 + r.Next(3) - 1, 29 + r.Next(3) - 1, 3, true, false);
+			Robot2 karesz = new Robot2("Karesz", 0, 0, 0, 0, 0, 39 + r.Next(3) - 1, 29 + r.Next(3) - 1, 0, true, false);
 			Frissít();
-			Robot őrvezető = new Robot("Őrvezető", 0, 0, 0, 0, 0, 19, 15, 3, true, false);
+			Robot2 őrvezető = new Robot2("Őrvezető", 0, 0, 0, 0, 0, 19, 15, 3, true, false);
 			//őrvezető.Feladat = delegate () { };
 			őrvezető.Feladat = delegate ()
 			{
@@ -90,7 +90,7 @@ namespace Karesz
 					Félkör(őrvezető);
 				}
 			};
-			Robot lilesz = new Robot("Lilesz", 0, 0, 0, 0, 0, 20, 15, 3, true, false);
+			Robot2 lilesz = new Robot2("Lilesz", 0, 0, 0, 0, 0, 20, 15, 3, true, false);
 			//lilesz.Feladat = delegate () { };
 			lilesz.Feladat = delegate ()
 			{
@@ -99,7 +99,7 @@ namespace Karesz
 				Körbemegy(lilesz);
 				lilesz.Fordulj(balra);
 				int db = 0;
-				while (!(Robot.lista.Count==2 && Robot.lista.Contains(lilesz) && Robot.lista.Contains(karesz) && db%2==1))
+				while (!(Robot2.lista.Count==2 && Robot2.lista.Contains(lilesz) && Robot2.lista.Contains(karesz) && db%2==1))
 				{
 					Félkör(lilesz);
 					db++;
@@ -116,7 +116,7 @@ namespace Karesz
 				lilesz.Fordulj(balra);
 				Türelmesen_Lépj(lilesz, 100);
 			};
-			Robot közlegény = new Robot("Közlegény", 0, 0, 0, 0, 0, 21, 15, 3, true, false);
+			Robot2 közlegény = new Robot2("Közlegény", 0, 0, 0, 0, 0, 21, 15, 3, true, false);
 			//közlegény.Feladat = delegate () { };
 			közlegény.Feladat = delegate ()
 			{

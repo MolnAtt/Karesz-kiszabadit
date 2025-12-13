@@ -14,6 +14,12 @@ Karesznek minden esélye abban áll, hogy a móló végén lévő vörös gráni
 
 Segíts Karesz szerelmének kijutni a fogságból!
 
+## Random részletek
+- a jobb alsó háromszögben spawnol 2 db hógolyó. Ezeket mindig határolják erdős területek határolják.
+- a fal közepe +/- 2 egységre spawnol az ablak, vele egy vonalban lesz a móló. 
+- a vízszintes úttest magassága random, de sosem halad el közvetlenül mellett.
+- Karesz a jobb alsó 3x3-as négyzetben spawnol, de mindig északra néz.
+
 
 # K.A.R.E.SZ.
 A Középiskolai Algoritmusokra Rávezető Edukációs Szoftver (továbbiakban K.A.R.E.SZ.) 
