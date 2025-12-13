@@ -7,10 +7,12 @@ namespace Karesz
 {
 	partial class Form1
 	{
-        #region Robotokra visszavezetett parancsok
+		#region Robotokra visszavezetett parancsok
 
-        void Lépj() => 
+		void Lépj() =>
 			Robot.akit_kiválasztottak.Lépj();
+		void Várj() =>
+			Robot.akit_kiválasztottak.Várj();
 		/*
 		void Fordulj_jobbra() => 
 			Robot.akit_kiválasztottak.Fordulj(jobbra);

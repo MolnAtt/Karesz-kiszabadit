@@ -24,6 +24,7 @@ namespace Karesz
 			Robot.Get("Karesz").Feladat = delegate ()
 			{
 				// IDE ÍRD AZ UTASÍTÁSOKAT!
+
 			};
 		}
 

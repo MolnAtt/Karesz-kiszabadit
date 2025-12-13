@@ -274,9 +274,10 @@ namespace Karesz
 				Robot.halállista.Clear();
 			}
 
+			readonly static HashSet<int> Halálos_pályaelemek = new HashSet<int> { fal, láva };
 			static void holtak_összegyűjtése()
 			{
-				Robot.Halállistához(r => pálya.MiVanItt(r.helyigény) == fal); // falba lép
+				Robot.Halállistához(r => Halálos_pályaelemek.Contains(pálya.MiVanItt(r.helyigény))); // falba/lávába lép
 				Robot.Halállistához(r => !pálya.BenneVan(r.helyigény)); // kiesik a pályáról
 				Robot.Halállistához((r1, r2) => r1.helyigény == r2.helyigény); // egy helyre léptek
 				Robot.Halállistához((r1, r2) => r1.helyigény == r2.H && r2.helyigény == r1.H); // átmentek egymáson / megpróbáltak helyet cserélni
@@ -289,7 +290,7 @@ namespace Karesz
 					pálya.LegyenItt(H, fekete);
 			}
 
-			void Meghal() => Robot.halállista.Add(this);
+			public void Meghal() => Robot.halállista.Add(this);
 			static void Halállistához(Func<Robot, bool> predikátum)
 			{
 				foreach (Robot robot in Robot.lista)

@@ -98,10 +98,14 @@ namespace Karesz
 				lilesz.Fordulj(balra);
 				Körbemegy(lilesz);
 				lilesz.Fordulj(balra);
-				while (Robot.lista.Count==2 && Robot.lista.Contains(lilesz) && Robot.lista.Contains(karesz))
+				int db = 0;
+				while (!(Robot.lista.Count==2 && Robot.lista.Contains(lilesz) && Robot.lista.Contains(karesz) && db%2==1))
 				{
 					Félkör(lilesz);
+					db++;
 				}
+
+				lilesz.Mondd("De hiszen már nem őriz senki! Szabad vagyok!");
 				Türelmesen_Lépj(lilesz, 9);
 				lilesz.Fordulj(jobbra);
 				Türelmesen_Lépj(lilesz, 12);
