@@ -111,26 +111,26 @@ namespace Karesz
 			//	Betölt(betöltendő_pálya);
 
 			form_teljesen_kész = true;
-			Robot2.form = this;
+			Robot.form = this;
 		}
 
 		void Frissít()
 		{
 
-			if (0 < Robot2.ok_száma && form_teljesen_kész)
+			if (0 < Robot.ok_száma && form_teljesen_kész)
 			{
 				//Robot.megfigyelt = Robot.lista[Robot.megfigyeltindex];
-				Control_Textjének_frissítése(robotnévlabel, Robot2.akit_kiválasztottak.Név);
-				Control_Textjének_frissítése(pozícióXtextbox, $"{Robot2.akit_kiválasztottak.H.X}");
-				Control_Textjének_frissítése(pozícióYtextbox, $"{Robot2.akit_kiválasztottak.H.Y}");
+				Control_Textjének_frissítése(robotnévlabel, Robot.akit_kiválasztottak.Név);
+				Control_Textjének_frissítése(pozícióXtextbox, $"{Robot.akit_kiválasztottak.H.X}");
+				Control_Textjének_frissítése(pozícióYtextbox, $"{Robot.akit_kiválasztottak.H.Y}");
 				Control_Textjének_frissítése(időtextbox, $"{idő}");
-				Control_Textjének_frissítése(hőtextbox, $"{Robot2.akit_kiválasztottak.Hőmérő()}");
-				Control_Textjének_frissítése(ultrahangtextbox, $"{Robot2.uh(Robot2.akit_kiválasztottak)}");
+				Control_Textjének_frissítése(hőtextbox, $"{Robot.akit_kiválasztottak.Hőmérő()}");
+				Control_Textjének_frissítése(ultrahangtextbox, $"{Robot.uh(Robot.akit_kiválasztottak)}");
 				for (int szín = 2; szín < 7; szín++)
-					Control_Textjének_frissítése(kőtextboxok[szín - 2], $"{Robot2.akit_kiválasztottak.Köveinek_száma_ebből(szín)}");
-				karesznagyításkeret.BackgroundImage = Robot2.akit_kiválasztottak.Iránykép();
+					Control_Textjének_frissítése(kőtextboxok[szín - 2], $"{Robot.akit_kiválasztottak.Köveinek_száma_ebből(szín)}");
+				karesznagyításkeret.BackgroundImage = Robot.akit_kiválasztottak.Iránykép();
 
-				Control_Textjének_frissítése(mivanitttextbox, színnév[Robot2.akit_kiválasztottak.Alatt_ez_van()]);
+				Control_Textjének_frissítése(mivanitttextbox, színnév[Robot.akit_kiválasztottak.Alatt_ez_van()]);
 
 				Control_frissítése(monitorpanel2);
 				Control_frissítése(képkeret);
@@ -155,7 +155,7 @@ namespace Karesz
 		void startgomb2_Click(object sender, EventArgs e)
 		{
 			Enged = false;
-			Robot2.Játék();
+			Robot.Játék();
 			Enged = true;
 		}
 
@@ -168,7 +168,7 @@ namespace Karesz
 		/// <param name="e"></param>
 		void elozorobotgomb_Click(object sender, EventArgs e)
 		{
-			++Robot2.megfigyeltindex;
+			++Robot.megfigyeltindex;
 			Frissít();
 		}
 		/// <summary>
@@ -178,7 +178,7 @@ namespace Karesz
 		/// <param name="e"></param>
 		void következőrobotgomb_Click(object sender, EventArgs e)
 		{
-			--Robot2.megfigyeltindex;
+			--Robot.megfigyeltindex;
 			Frissít();
 		}
 		/// <summary>
@@ -195,9 +195,9 @@ namespace Karesz
 		/// <param name="e"></param>
 		void képkeret_MouseDown(object sender, MouseEventArgs e)
 		{
-			if (0 < Robot2.ok_száma)
+			if (0 < Robot.ok_száma)
 			{
-				Robot2.akit_kiválasztottak.Teleport(e.X / pálya.L.X, e.Y / pálya.L.Y);
+				Robot.akit_kiválasztottak.Teleport(e.X / pálya.L.X, e.Y / pálya.L.Y);
 				képkeret.Refresh();
 				Frissít();
 			}
@@ -211,11 +211,11 @@ namespace Karesz
 			pálya.Rajz(e);
 		void mivanalattamnagyításkeret_Paint(object sender, PaintEventArgs e)
 		{
-			if (0 < Robot2.ok_száma)
-				pálya.AlakRajz(Robot2.akit_kiválasztottak.Alatt_ez_van(), e, 0, 0, new Vektor(mivanalattamnagyításkeret.Width - 2, mivanalattamnagyításkeret.Height - 2));
+			if (0 < Robot.ok_száma)
+				pálya.AlakRajz(Robot.akit_kiválasztottak.Alatt_ez_van(), e, 0, 0, new Vektor(mivanalattamnagyításkeret.Width - 2, mivanalattamnagyításkeret.Height - 2));
 		}
 		void karesznagyításkeret_Click(object sender, EventArgs e) =>
-			Robot2.akit_kiválasztottak.Fordulj(jobbra);
+			Robot.akit_kiválasztottak.Fordulj(jobbra);
 		void pályatextbox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
