@@ -74,6 +74,7 @@ namespace Karesz
 			{
 				pálya.LegyenItt(p, fekete);
 			}
+			pálya.LegyenItt(móló_vége, piros);
 
 			Robot karesz = new Robot(
 				név: "Karesz",

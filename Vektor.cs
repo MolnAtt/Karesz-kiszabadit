@@ -10,9 +10,9 @@ namespace Karesz
 	/// </summary>
 	struct Vektor
 	{
-		public static Vektor Észak { get => new Vektor(0, 1); }
+		public static Vektor Észak { get => new Vektor(0, -1); }
+		public static Vektor Dél { get => new Vektor(0, 1); }
 		public static Vektor Kelet { get => new Vektor(1, 0); }
-		public static Vektor Dél { get => new Vektor(0, -1); }
 		public static Vektor Nyugat { get => new Vektor(-1, 0); }
 
 		#region tulajdonságok
