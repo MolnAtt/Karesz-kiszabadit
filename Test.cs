@@ -177,12 +177,13 @@ namespace Karesz
 
 			protected static HashSet<(Vektor, Vektor)> Ellövendő_lövedékek = new HashSet<(Vektor, Vektor)>();
 
+			bool Más_test_van_itt(Vektor v) => -1 < Test.lista.FindIndex(r => r.H == v);
 
 			protected int Akadálytávolság(Vektor hely, Vektor sebesség)
 			{
 				int d = 1;
 				Vektor J = new Vektor(hely + sebesség);
-				while (pálya.BenneVan(J) && !(pálya.MiVanItt(J) == 1 || Más_robot_van_itt(J)))
+				while (pálya.BenneVan(J) && !(pálya.MiVanItt(J) == 1 || Más_test_van_itt(J)))
 				{
 					J += sebesség;
 					d++;

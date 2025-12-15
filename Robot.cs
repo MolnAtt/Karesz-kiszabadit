@@ -14,17 +14,43 @@ namespace Karesz
 	{
 		class Robot : Test
 		{
-
-
+			#region statikus tulajdonságok
 			public static List<Robot> lista = new List<Robot>();
-
 			public static ModuloSzam megfigyeltindex;
 			public static Robot akit_kiválasztottak { get => lista[megfigyeltindex.ToInt()]; }
 
-
+			#endregion
+			#region tulajdonságok
 			public override bool Ez_egy_robot => true;
+			int[] kődb;
+			bool robot_e;
+			bool uh_engedélyezve;
+			bool szuh_engedélyezve;
 
+			
+			Action feladat;
+			public Action Feladat
+			{
+				get => feladat;
+				set
+				{
+					feladat = value;
+					szál = new Thread(ThreadMain);
+				}
+			}
 
+			// COOPERATIVE SCHEDULING
+			// Analógia: Minden autónak van egy jelzőlámpája és egy dudája
+			// Ha a jelzőlámpája zöldre vált, elindul be a kereszteződésbe
+			// Ha a kereszteződésen átért, megfújja a dudáját, jelezve, hogy végeztem
+			Thread szál;
+			AutoResetEvent jelzőlámpa;
+			AutoResetEvent duda;
+			volatile bool végzett;
+			public bool Végzett => végzett;
+
+			#endregion
+			#region konstruktorok
 			public Robot(string név, Bitmap[] képkészlet, int[] kődb, Vektor h, Vektor v, bool uh_engedélyezve = true, bool szuh_engedélyezve = true) : base(név, képkészlet, h, v)
 			{
 				this.kődb = kődb;
@@ -71,36 +97,8 @@ namespace Karesz
 				this(adottnév, 5, 28)
 			{ }
 
-
-
-			int[] kődb;
-			Action feladat;
-			bool robot_e;
-			bool uh_engedélyezve;
-			bool szuh_engedélyezve;
-			// cooperative scheduling
-			Thread szál;
-
-			// Analógia: Minden autónak van egy jelzőlámpája és egy dudája
-			// Ha a jelzőlámpája zöldre vált, elindul be a kereszteződésbe
-			// Ha a kereszteződésen átért, megfújja a dudáját, jelezve, hogy végeztem
-			AutoResetEvent jelzőlámpa;
-			AutoResetEvent duda;
-			volatile bool végzett;
-
-			public bool Végzett => végzett;
-
-
-			public Action Feladat
-			{
-				get => feladat;
-				set
-				{
-					feladat = value;
-					szál = new Thread(ThreadMain);
-				}
-			}
-
+			#endregion
+			#region Játékkezelés
 			void ThreadMain()
 			{
 				jelzőlámpa.WaitOne();
@@ -115,26 +113,19 @@ namespace Karesz
 					duda.Set();
 				}
 			}
-
 			void Indítása_ha_áll()
 			{
 				if (szál.ThreadState == ThreadState.Unstarted)
 					szál.Start();
 			}
-
-
 			public bool Kész { get => szál.ThreadState == ThreadState.Stopped; }
 			public bool Vár { get => szál.ThreadState == ThreadState.Suspended; }
 			public bool Elindult { get => szál.ThreadState != ThreadState.Unstarted; }
-
-
-			#region Játékkezelés
 			static void ok_elindítása()
 			{
 				foreach (Robot robot in Robot.lista)
 					robot.Indítása_ha_áll();
 			}
-
 			public static void Játék()
 			{
 				Robot.ok_elindítása();
@@ -174,7 +165,6 @@ namespace Karesz
 				//Robot.form.Frissít();
 				//SendKeys.Send("%"); // valamilyen misztikus okból kifolyólag nem frissít rendesen az ablak a végén, csak ha valaki az ALT gombot lenyomja...
 			}
-
 			public void MarkAsFinished()
 			{
 				végzett = true;
@@ -182,12 +172,10 @@ namespace Karesz
 				// jelezhetünk is, ha épp egy turn-ben halt meg
 				duda.Set();
 			}
-
 			void Sírkő_letétele()
 			{
 				Test.pálya.LegyenItt(H, fekete);
 			}
-
 			void Eltavolitasa()
 			{
 				this.Sírkő_letétele();
@@ -198,8 +186,18 @@ namespace Karesz
 				Test.lista.Remove(this);
 				Robot.megfigyeltindex.ModulusCsökkentése();
 			}
-			#endregion
+			void Cselekvés_vége()
+			{
+				// régi
+				//if (!Kész && Elindult)
+				//	this.thread.Suspend(); 
+				if (Végzett) return;
 
+				duda.Set();   // jelez a schedulernek: „kész a köröm”
+				jelzőlámpa.WaitOne();   // és várja a következő engedélyt
+			}
+			#endregion
+			#region Cselekvések
 			/// <summary>
 			/// Lépteti a testet a megfelelő irányba.
 			/// </summary>
@@ -268,8 +266,7 @@ namespace Karesz
 			public void Várj() => Cselekvés_vége();
 			public void Mondd(string ezt) => MessageBox.Show(Név + ": " + ezt);
 
-
-
+			#endregion
 			#region Szenzorok
 
 			/// <summary>
@@ -343,21 +340,9 @@ namespace Karesz
 				return (Akadálytávolság(H + v.Forgatott(balra), v), Akadálytávolság(H, v), Akadálytávolság(H + v.Forgatott(jobbra), v));
 			}
 
-			bool Más_robot_van_itt(Vektor v) => -1 < Test.lista.FindIndex(r => r.H == v);
+			public int Hőmérő() => pálya.Hőmérséklet(H);
 			HashSet<Vektor> Más_robotok_helyei() => Test.lista.Select(x => x.H).ToHashSet();
-			public int Hőmérő() =>
-				pálya.Hőmérséklet(H);
-
-			void Cselekvés_vége()
-			{
-				// régi
-				//if (!Kész && Elindult)
-				//	this.thread.Suspend(); 
-				if (Végzett) return;
-
-				duda.Set();   // jelez a schedulernek: „kész a köröm”
-				jelzőlámpa.WaitOne();   // és várja a következő engedélyt
-			}
+			#endregion
 		}
 	}
 }
