@@ -173,7 +173,7 @@ namespace Karesz
 					for (int x = 0; x < X; ++x)
 						AlakRajz(tábla[x, y], e, x, y, l);
 
-				foreach (Test robot in Test.lista)
+				foreach (Test robot in Test.lista.Where(t => t.Ez_egy_lövedék || t.Ez_egy_robot))
 					e.Graphics.DrawImageUnscaledAndClipped(robot.Iránykép(), new Rectangle(robot.H.X * l.X, robot.H.Y * l.Y, l.X, l.Y));
 			}
 

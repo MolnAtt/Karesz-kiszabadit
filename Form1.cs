@@ -21,9 +21,47 @@ namespace Karesz
 		void DIÁK_ROBOTJAI()
 		{
 			Test.várakozási_idő = 10;
-			Test.Get("Karesz").Feladat = delegate ()
+			Robot.Get("Karesz").Feladat = delegate ()
 			{
 				// IDE ÍRD AZ UTASÍTÁSOKAT!
+
+				Lőjj();
+
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj(); Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj(); Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj(); Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj(); Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj(); Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Várj();
+				Lőjj();
+
+				while (true) { Lépj(); }
 			};
 		}
 

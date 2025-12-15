@@ -10,9 +10,14 @@ namespace Karesz
 	/// </summary>
 	struct Vektor
 	{
-        #region tulajdonságok
+		public static Vektor Észak { get => new Vektor(0, 1); }
+		public static Vektor Kelet { get => new Vektor(1, 0); }
+		public static Vektor Dél { get => new Vektor(0, -1); }
+		public static Vektor Nyugat { get => new Vektor(-1, 0); }
 
-        public int X, Y;
+		#region tulajdonságok
+
+		public int X, Y;
 
         #endregion
 
@@ -78,6 +83,27 @@ namespace Karesz
 		#endregion
 
 		#region egyéb műveletek
+
+		public override bool Equals(object obj)
+		{
+			if (!(obj is Vektor))
+				return false;
+
+			Vektor other = (Vektor)obj;
+			return this == other;
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				int hash = 17;
+				hash = hash * 31 + X;
+				hash = hash * 31 + Y;
+				return hash;
+			}
+		}
+
 
 		public int HosszN() =>
 			X * X + Y * Y;

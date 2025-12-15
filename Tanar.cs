@@ -75,10 +75,25 @@ namespace Karesz
 				pálya.LegyenItt(p, fekete);
 			}
 
-			Robot karesz = new Robot("Karesz", 0, 0, 0, 0, 0, 39 + r.Next(3) - 1, 29 + r.Next(3) - 1, 0, true, false);
+			Robot karesz = new Robot(
+				név: "Karesz",
+				képkészlet: Robot.képkészlet_karesz,
+				kődb: new int[] { 0, 0, 0, 0, 0 },
+				h: new Vektor(39 + r.Next(3) - 1, 29 + r.Next(3) - 1), 
+				v: Vektor.Észak, 
+				uh_engedélyezve: true, 
+				szuh_engedélyezve: false
+				);
 			Frissít();
-			Robot őrvezető = new Robot("Őrvezető", 0, 0, 0, 0, 0, 19, 15, 3, true, false);
-			//őrvezető.Feladat = delegate () { };
+			Robot őrvezető = new Robot(
+				név: "Őrvezető",
+				képkészlet: Robot.képkészlet_gonesz,
+				kődb: new int[] { 0, 0, 0, 0, 0 },
+				h: new Vektor(19, 15),
+				v: Vektor.Nyugat,
+				uh_engedélyezve: true,
+				szuh_engedélyezve: false
+				);
 			őrvezető.Feladat = delegate ()
 			{
 				Türelmesen_Lépj(őrvezető, 8);
@@ -90,7 +105,15 @@ namespace Karesz
 					Félkör(őrvezető);
 				}
 			};
-			Robot lilesz = new Robot("Lilesz", 0, 0, 0, 0, 0, 20, 15, 3, true, false);
+			Robot lilesz = new Robot(
+				név: "Maresz",
+				képkészlet: Robot.képkészlet_maresz,
+				kődb: new int[] { 0, 0, 0, 0, 0 },
+				h: new Vektor(20, 15),
+				v: Vektor.Nyugat,
+				uh_engedélyezve: true,
+				szuh_engedélyezve: false
+				); ;
 			//lilesz.Feladat = delegate () { };
 			lilesz.Feladat = delegate ()
 			{
@@ -116,8 +139,15 @@ namespace Karesz
 				lilesz.Fordulj(balra);
 				Türelmesen_Lépj(lilesz, 100);
 			};
-			Robot közlegény = new Robot("Közlegény", 0, 0, 0, 0, 0, 21, 15, 3, true, false);
-			//közlegény.Feladat = delegate () { };
+			Robot közlegény = new Robot(
+				név: "Közlegény",
+				képkészlet: Robot.képkészlet_gonesz,
+				kődb: new int[] { 0, 0, 0, 0, 0 },
+				h: new Vektor(21, 15),
+				v: Vektor.Nyugat,
+				uh_engedélyezve: true,
+				szuh_engedélyezve: false
+				);
 			közlegény.Feladat = delegate ()
 			{
 				Türelmesen_Lépj(közlegény, 10);

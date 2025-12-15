@@ -63,6 +63,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Kiterjesztesek.cs" />
+    <Compile Include="Lovedek.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModuloSzam.cs" />
     <Compile Include="Palya.cs">
       <SubType>Form</SubType>
@@ -129,6 +132,15 @@
     <Content Include="Resources\golyesz_left.png" />
     <Content Include="Resources\golyesz_right.png" />
     <Content Include="Resources\golyesz_up.png" />
+    <Content Include="Resources\Golyo0.png" />
+    <Content Include="Resources\Gonesz0.png" />
+    <Content Include="Resources\Gonesz1.png" />
+    <Content Include="Resources\Gonesz2.png" />
+    <Content Include="Resources\Gonesz3.png" />
+    <Content Include="Resources\Maresz0.png" />
+    <Content Include="Resources\Maresz1.png" />
+    <Content Include="Resources\Maresz2.png" />
+    <Content Include="Resources\Maresz3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

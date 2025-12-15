@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -93,7 +94,30 @@ namespace Karesz
             if (n == m)
                 n = 0;
         }
-        #endregion
+		#endregion
 
-    }
+		public override bool Equals(object obj)
+		{
+			if (!(obj is ModuloSzam))
+				return false;
+
+			ModuloSzam other = (ModuloSzam)obj;
+			return this == other;
+		}
+
+		public override int GetHashCode()
+		{
+			unchecked
+			{
+				int hash = 17;
+				hash = hash * 31 + n;
+				hash = hash * 31 + m;
+				return hash;
+			}
+		}
+
+
+
+	}
+
 }

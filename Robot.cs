@@ -15,18 +15,46 @@ namespace Karesz
 		class Robot : Test
 		{
 			#region statikus tulajdonságok
-			public static List<Robot> lista = new List<Robot>();
 			public static ModuloSzam megfigyeltindex;
-			public static Robot akit_kiválasztottak { get => lista[megfigyeltindex.ToInt()]; }
+			public static Robot akit_kiválasztottak { get => (Robot)Test.lista[megfigyeltindex.ToInt()]; }
 
+			public static readonly Bitmap[] képkészlet_karesz = new Bitmap[4]
+			{
+				Properties.Resources.Karesz0,
+				Properties.Resources.Karesz1,
+				Properties.Resources.Karesz2,
+				Properties.Resources.Karesz3
+			};
+			public static readonly Bitmap[] képkészlet_lilesz = new Bitmap[4]
+			{
+				Properties.Resources.Lilesz0,
+				Properties.Resources.Lilesz1,
+				Properties.Resources.Lilesz2,
+				Properties.Resources.Lilesz3
+			};
+
+			public static readonly Bitmap[] képkészlet_maresz = new Bitmap[4]
+			{
+				Properties.Resources.Maresz0,
+				Properties.Resources.Maresz1,
+				Properties.Resources.Maresz2,
+				Properties.Resources.Maresz3
+			};
+
+			public static readonly Bitmap[] képkészlet_gonesz = new Bitmap[4]
+			{
+				Properties.Resources.Gonesz0,
+				Properties.Resources.Gonesz1,
+				Properties.Resources.Gonesz2,
+				Properties.Resources.Gonesz3
+			};
 			#endregion
 			#region tulajdonságok
 			public override bool Ez_egy_robot => true;
 			int[] kődb;
-			bool robot_e;
-			bool uh_engedélyezve;
-			bool szuh_engedélyezve;
-
+			Bitmap[] képkészlet;
+			readonly bool uh_engedélyezve;
+			readonly bool szuh_engedélyezve;
 			
 			Action feladat;
 			public Action Feladat
@@ -51,8 +79,9 @@ namespace Karesz
 
 			#endregion
 			#region konstruktorok
-			public Robot(string név, Bitmap[] képkészlet, int[] kődb, Vektor h, Vektor v, bool uh_engedélyezve = true, bool szuh_engedélyezve = true) : base(név, képkészlet, h, v)
+			public Robot(string név, Bitmap[] képkészlet, int[] kődb, Vektor h, Vektor v, bool uh_engedélyezve = true, bool szuh_engedélyezve = true) : base(név, h, v)
 			{
+				this.képkészlet = képkészlet;
 				this.kődb = kődb;
 				this.uh_engedélyezve = uh_engedélyezve;
 				this.szuh_engedélyezve = szuh_engedélyezve;
@@ -67,7 +96,6 @@ namespace Karesz
 				else
 					Robot.megfigyeltindex.ModulusNövelése();
 
-				Robot.lista.Add(this);
 			}
 			public Robot(string adottnév, int[] indulókövek, Vektor hely, Vektor sebesség, bool uh_engedélyezve = true, bool szuh_engedélyezve = true)
 				: this(adottnév, képkészlet_karesz,
@@ -123,7 +151,7 @@ namespace Karesz
 			public bool Elindult { get => szál.ThreadState != ThreadState.Unstarted; }
 			static void ok_elindítása()
 			{
-				foreach (Robot robot in Robot.lista)
+				foreach (Robot robot in Test.lista.OfType<Robot>())
 					robot.Indítása_ha_áll();
 			}
 			public static void Játék()
@@ -132,9 +160,9 @@ namespace Karesz
 
 				// első kör: az első robot kapjon engedélyt
 				// (vagy mindenki, ha körönként haladunk – itt az egyszerűbb verzió)
-				while (lista.Exists(r => !r.Végzett))
+				while (Test.lista.OfType<Robot>().Any(r => !r.Végzett))
 				{
-					foreach (Robot robot in lista)
+					foreach (Robot robot in Test.lista.OfType<Robot>().ToList())
 					{
 						if (!robot.Végzett)
 						{
@@ -172,11 +200,11 @@ namespace Karesz
 				// jelezhetünk is, ha épp egy turn-ben halt meg
 				duda.Set();
 			}
-			void Sírkő_letétele()
+			protected override void Sírkő_letétele()
 			{
 				Test.pálya.LegyenItt(H, fekete);
 			}
-			void Eltavolitasa()
+			protected override void Eltavolitasa()
 			{
 				this.Sírkő_letétele();
 				if (this.Indexe() < Robot.megfigyeltindex.ToInt())
@@ -201,7 +229,7 @@ namespace Karesz
 			/// <summary>
 			/// Lépteti a testet a megfelelő irányba.
 			/// </summary>
-			public void Lépj()
+			public override void Lépj()
 			{
 				helyigény = h + v;
 				Cselekvés_vége();
@@ -343,6 +371,13 @@ namespace Karesz
 			public int Hőmérő() => pálya.Hőmérséklet(H);
 			HashSet<Vektor> Más_robotok_helyei() => Test.lista.Select(x => x.H).ToHashSet();
 			#endregion
+
+			/// <summary>
+			/// Visszaadja a sebességvektor számkódját, ami a képek kezeléséhez kell.
+			/// </summary>
+			/// <returns></returns>
+			public override Bitmap Iránykép() => képkészlet[v.ToInt()];
+
 		}
 	}
 }

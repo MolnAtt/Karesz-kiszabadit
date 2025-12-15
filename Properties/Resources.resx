@@ -130,6 +130,21 @@
   <data name="golyesz_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\golyesz_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Golyo0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Golyo0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gonesz0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gonesz0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gonesz1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gonesz1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gonesz2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gonesz2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gonesz3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gonesz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Karesz0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Karesz0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,5 +168,17 @@
   </data>
   <data name="Lilesz3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\lilesz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Maresz0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maresz0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Maresz1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maresz1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Maresz2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maresz2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Maresz3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maresz3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
