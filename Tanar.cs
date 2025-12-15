@@ -75,9 +75,9 @@ namespace Karesz
 				pálya.LegyenItt(p, fekete);
 			}
 
-			Robot karesz = new Robot("Karesz", 0, 0, 0, 0, 0, 39 + r.Next(3) - 1, 29 + r.Next(3) - 1, 0, true, false);
+			Test karesz = new Robot("Karesz", 0, 0, 0, 0, 0, 39 + r.Next(3) - 1, 29 + r.Next(3) - 1, 0, true, false);
 			Frissít();
-			Robot őrvezető = new Robot("Őrvezető", 0, 0, 0, 0, 0, 19, 15, 3, true, false);
+			Test őrvezető = new Robot("Őrvezető", 0, 0, 0, 0, 0, 19, 15, 3, true, false);
 			//őrvezető.Feladat = delegate () { };
 			őrvezető.Feladat = delegate ()
 			{
@@ -90,7 +90,7 @@ namespace Karesz
 					Félkör(őrvezető);
 				}
 			};
-			Robot lilesz = new Robot("Lilesz", 0, 0, 0, 0, 0, 20, 15, 3, true, false);
+			Test lilesz = new Robot("Lilesz", 0, 0, 0, 0, 0, 20, 15, 3, true, false);
 			//lilesz.Feladat = delegate () { };
 			lilesz.Feladat = delegate ()
 			{
@@ -99,7 +99,7 @@ namespace Karesz
 				Körbemegy(lilesz);
 				lilesz.Fordulj(balra);
 				int db = 0;
-				while (!(Robot.lista.Count==2 && Robot.lista.Contains(lilesz) && Robot.lista.Contains(karesz) && db%2==1))
+				while (!(Test.lista.Count==2 && Test.lista.Contains(lilesz) && Test.lista.Contains(karesz) && db%2==1))
 				{
 					Félkör(lilesz);
 					db++;
@@ -116,7 +116,7 @@ namespace Karesz
 				lilesz.Fordulj(balra);
 				Türelmesen_Lépj(lilesz, 100);
 			};
-			Robot közlegény = new Robot("Közlegény", 0, 0, 0, 0, 0, 21, 15, 3, true, false);
+			Test közlegény = new Robot("Közlegény", 0, 0, 0, 0, 0, 21, 15, 3, true, false);
 			//közlegény.Feladat = delegate () { };
 			közlegény.Feladat = delegate ()
 			{

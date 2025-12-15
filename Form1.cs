@@ -20,8 +20,8 @@ namespace Karesz
 
 		void DIÁK_ROBOTJAI()
 		{
-			Robot.várakozási_idő = 10;
-			Robot.Get("Karesz").Feladat = delegate ()
+			Test.várakozási_idő = 10;
+			Test.Get("Karesz").Feladat = delegate ()
 			{
 				// IDE ÍRD AZ UTASÍTÁSOKAT!
 			};
