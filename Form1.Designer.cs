@@ -316,6 +316,7 @@ namespace Karesz
 			this.hólabel.Size = new System.Drawing.Size(29, 20);
 			this.hólabel.TabIndex = 23;
 			this.hólabel.Text = "hó";
+			this.hólabel.Click += new System.EventHandler(this.hólabel_Click);
 			// 
 			// sárgalabel
 			// 
@@ -327,6 +328,7 @@ namespace Karesz
 			this.sárgalabel.Size = new System.Drawing.Size(56, 20);
 			this.sárgalabel.TabIndex = 22;
 			this.sárgalabel.Text = "sárga";
+			this.sárgalabel.Click += new System.EventHandler(this.sárgalabel_Click);
 			// 
 			// zöldtextbox
 			// 
@@ -365,6 +367,7 @@ namespace Karesz
 			this.zöldlabel.Size = new System.Drawing.Size(44, 20);
 			this.zöldlabel.TabIndex = 18;
 			this.zöldlabel.Text = "szín";
+			this.zöldlabel.Click += new System.EventHandler(this.zöldlabel_Click);
 			// 
 			// piroslabel
 			// 
@@ -376,6 +379,7 @@ namespace Karesz
 			this.piroslabel.Size = new System.Drawing.Size(51, 20);
 			this.piroslabel.TabIndex = 17;
 			this.piroslabel.Text = "piros";
+			this.piroslabel.Click += new System.EventHandler(this.piroslabel_Click);
 			// 
 			// feketelabel
 			// 
@@ -386,6 +390,7 @@ namespace Karesz
 			this.feketelabel.Size = new System.Drawing.Size(60, 20);
 			this.feketelabel.TabIndex = 16;
 			this.feketelabel.Text = "fekete";
+			this.feketelabel.Click += new System.EventHandler(this.feketelabel_Click);
 			// 
 			// ultrahangtextbox
 			// 

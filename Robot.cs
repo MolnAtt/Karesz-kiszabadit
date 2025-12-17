@@ -244,11 +244,8 @@ namespace Karesz
 				v.Forgat(forgásirány);
 				Cselekvés_vége();
 			}
-			/// <summary>
-			/// Lerakja az adott színű követ a pályán a robot helyére.
-			/// </summary>
-			/// <param name="szín"></param>
-			public void Tegyél_le_egy_kavicsot(int szín = fekete)
+
+			public void Kavicsot_tesz_le(int szín = fekete)
 			{
 				if (pálya.MiVanItt(H) != üres)
 					Mondd("Nem tudom a kavicsot lerakni, mert van lerakva kavics!");
@@ -260,13 +257,25 @@ namespace Karesz
 					--kődb[szín - 2];
 					idő++;
 				}
+			}
+
+			/// <summary>
+			/// Lerakja az adott színű követ a pályán a robot helyére.
+			/// </summary>
+			/// <param name="szín"></param>
+			public void Tegyél_le_egy_kavicsot(int szín = fekete)
+			{
+				Kavicsot_tesz_le(szín);
 				Cselekvés_vége();
 			}
+
+
 			/// <summary>
 			/// Felveszi azt, amin éppen áll -- feltéve ha az nem fal, stb.
 			/// </summary>
 			public void Vegyél_fel_egy_kavicsot()
 			{
+
 				if (pálya.MiVanItt(H) > fal)
 				{
 					++kődb[pálya.MiVanItt(H) - 2];

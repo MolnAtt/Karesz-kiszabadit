@@ -169,7 +169,7 @@ namespace Karesz
 			}
 			public void Forog(int irany)
 			{
-				
+				v.Forgat(irany);
 			}
 
 		}

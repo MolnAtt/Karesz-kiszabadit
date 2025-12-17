@@ -158,9 +158,6 @@ namespace Karesz
 			Robot.Játék();
 			Enged = true;
 		}
-
-
-
 		/// <summary>
 		/// Az előző robotra vált
 		/// </summary>
@@ -221,37 +218,33 @@ namespace Karesz
 			if (e.KeyCode == Keys.Enter)
 				pályagomb.PerformClick();
 		}
-
-
 		private void gomb_lépj_click(object sender, EventArgs e)
 		{
 			Robot.akit_kiválasztottak.Megy();
 			képkeret.Refresh();
 		}
-
 		private void gomb_jobbra_click(object sender, EventArgs e)
 		{
 			Robot.akit_kiválasztottak.Forog(jobbra);
 			képkeret.Refresh();
 		}
-
 		private void gomb_balra_click(object sender, EventArgs e)
 		{
 			Robot.akit_kiválasztottak.Forog(balra);
 			képkeret.Refresh();
 		}
-
-		private void gomb_vegyél_fel_click(object sender, EventArgs e)
+		private void Átír(int elem)
 		{
-			//Robot.akit_kiválasztottak.Kavicsot_vesz_fel();
+			pálya.LegyenItt(Robot.akit_kiválasztottak.H, elem);
 			képkeret.Refresh();
 		}
-
-		private void gomb_tegyél_le_click(object sender, EventArgs e)
-		{
-			//Robot.akit_kiválasztottak.Kavicsot_tesz_le();
-			képkeret.Refresh();
-		}
+		private void gomb_vegyél_fel_click(object sender, EventArgs e) => Átír(üres);
+		private void gomb_tegyél_le_click(object sender, EventArgs e) => Átír(fekete);
+		private void feketelabel_Click(object sender, EventArgs e) => Átír(fekete);
+		private void piroslabel_Click(object sender, EventArgs e) => Átír(piros);
+		private void zöldlabel_Click(object sender, EventArgs e) => Átír(zöld);
+		private void sárgalabel_Click(object sender, EventArgs e) => Átír(sárga);
+		private void hólabel_Click(object sender, EventArgs e) =>Átír(hó);
 
 		#endregion
 	}
