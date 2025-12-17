@@ -222,6 +222,37 @@ namespace Karesz
 				pályagomb.PerformClick();
 		}
 
+
+		private void gomb_lépj_click(object sender, EventArgs e)
+		{
+			Robot.akit_kiválasztottak.Megy();
+			képkeret.Refresh();
+		}
+
+		private void gomb_jobbra_click(object sender, EventArgs e)
+		{
+			Robot.akit_kiválasztottak.Forog(jobbra);
+			képkeret.Refresh();
+		}
+
+		private void gomb_balra_click(object sender, EventArgs e)
+		{
+			Robot.akit_kiválasztottak.Forog(balra);
+			képkeret.Refresh();
+		}
+
+		private void gomb_vegyél_fel_click(object sender, EventArgs e)
+		{
+			//Robot.akit_kiválasztottak.Kavicsot_vesz_fel();
+			képkeret.Refresh();
+		}
+
+		private void gomb_tegyél_le_click(object sender, EventArgs e)
+		{
+			//Robot.akit_kiválasztottak.Kavicsot_tesz_le();
+			képkeret.Refresh();
+		}
+
 		#endregion
 	}
 }

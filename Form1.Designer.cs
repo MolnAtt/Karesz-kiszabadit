@@ -25,6 +25,11 @@ namespace Karesz
         {
 			this.képkeret = new System.Windows.Forms.PictureBox();
 			this.monitorpanel2 = new System.Windows.Forms.Panel();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			this.alsokameralabel = new System.Windows.Forms.Label();
 			this.mivanalattamnagyításkeret = new System.Windows.Forms.PictureBox();
 			this.mivanitttextbox = new System.Windows.Forms.TextBox();
@@ -72,7 +77,6 @@ namespace Karesz
 			this.képkeret.Size = new System.Drawing.Size(984, 744);
 			this.képkeret.TabIndex = 0;
 			this.képkeret.TabStop = false;
-
 			this.képkeret.Paint += new System.Windows.Forms.PaintEventHandler(this.képkeret_Paint);
 			this.képkeret.MouseDown += new System.Windows.Forms.MouseEventHandler(this.képkeret_MouseDown);
 			// 
@@ -80,6 +84,11 @@ namespace Karesz
 			// 
 			this.monitorpanel2.BackColor = System.Drawing.SystemColors.ScrollBar;
 			this.monitorpanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.monitorpanel2.Controls.Add(this.button5);
+			this.monitorpanel2.Controls.Add(this.button4);
+			this.monitorpanel2.Controls.Add(this.button3);
+			this.monitorpanel2.Controls.Add(this.button2);
+			this.monitorpanel2.Controls.Add(this.button1);
 			this.monitorpanel2.Controls.Add(this.alsokameralabel);
 			this.monitorpanel2.Controls.Add(this.mivanalattamnagyításkeret);
 			this.monitorpanel2.Controls.Add(this.mivanitttextbox);
@@ -112,17 +121,73 @@ namespace Karesz
 			this.monitorpanel2.Controls.Add(this.következőrobotgomb);
 			this.monitorpanel2.Controls.Add(this.elozorobotgomb);
 			this.monitorpanel2.Controls.Add(this.startgomb2);
+			this.monitorpanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.monitorpanel2.Location = new System.Drawing.Point(1004, 12);
 			this.monitorpanel2.Name = "monitorpanel2";
 			this.monitorpanel2.Size = new System.Drawing.Size(159, 743);
 			this.monitorpanel2.TabIndex = 1;
+			// 
+			// button5
+			// 
+			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button5.Location = new System.Drawing.Point(39, 392);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(25, 25);
+			this.button5.TabIndex = 43;
+			this.button5.Text = "V";
+			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.gomb_vegyél_fel_click);
+			// 
+			// button4
+			// 
+			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button4.Location = new System.Drawing.Point(15, 392);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(25, 25);
+			this.button4.TabIndex = 42;
+			this.button4.Text = "T";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.gomb_tegyél_le_click);
+			// 
+			// button3
+			// 
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button3.Location = new System.Drawing.Point(27, 367);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(25, 25);
+			this.button3.TabIndex = 41;
+			this.button3.Text = "L";
+			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.gomb_lépj_click);
+			// 
+			// button2
+			// 
+			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button2.Location = new System.Drawing.Point(2, 367);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(25, 25);
+			this.button2.TabIndex = 40;
+			this.button2.Text = "B";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.gomb_balra_click);
+			// 
+			// button1
+			// 
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.button1.Location = new System.Drawing.Point(52, 367);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(25, 25);
+			this.button1.TabIndex = 39;
+			this.button1.Text = "J";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.gomb_jobbra_click);
 			// 
 			// alsokameralabel
 			// 
 			this.alsokameralabel.AutoSize = true;
 			this.alsokameralabel.Location = new System.Drawing.Point(20, 322);
 			this.alsokameralabel.Name = "alsokameralabel";
-			this.alsokameralabel.Size = new System.Drawing.Size(74, 16);
+			this.alsokameralabel.Size = new System.Drawing.Size(69, 15);
 			this.alsokameralabel.TabIndex = 38;
 			this.alsokameralabel.Text = "Kiskamera:";
 			// 
@@ -141,7 +206,7 @@ namespace Karesz
 			// 
 			this.mivanitttextbox.Location = new System.Drawing.Point(84, 271);
 			this.mivanitttextbox.Name = "mivanitttextbox";
-			this.mivanitttextbox.Size = new System.Drawing.Size(64, 22);
+			this.mivanitttextbox.Size = new System.Drawing.Size(64, 21);
 			this.mivanitttextbox.TabIndex = 36;
 			this.mivanitttextbox.Text = "semmi";
 			this.mivanitttextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -151,7 +216,7 @@ namespace Karesz
 			this.mivanalattamlabel.AutoSize = true;
 			this.mivanalattamlabel.Location = new System.Drawing.Point(20, 274);
 			this.mivanalattamlabel.Name = "mivanalattamlabel";
-			this.mivanalattamlabel.Size = new System.Drawing.Size(61, 16);
+			this.mivanalattamlabel.Size = new System.Drawing.Size(58, 15);
 			this.mivanalattamlabel.TabIndex = 35;
 			this.mivanalattamlabel.Text = "Mi van itt:";
 			// 
@@ -159,7 +224,7 @@ namespace Karesz
 			// 
 			this.pozícióYtextbox.Location = new System.Drawing.Point(117, 195);
 			this.pozícióYtextbox.Name = "pozícióYtextbox";
-			this.pozícióYtextbox.Size = new System.Drawing.Size(31, 22);
+			this.pozícióYtextbox.Size = new System.Drawing.Size(31, 21);
 			this.pozícióYtextbox.TabIndex = 34;
 			this.pozícióYtextbox.Text = "5";
 			this.pozícióYtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -168,7 +233,7 @@ namespace Karesz
 			// 
 			this.pozícióXtextbox.Location = new System.Drawing.Point(84, 195);
 			this.pozícióXtextbox.Name = "pozícióXtextbox";
-			this.pozícióXtextbox.Size = new System.Drawing.Size(31, 22);
+			this.pozícióXtextbox.Size = new System.Drawing.Size(31, 21);
 			this.pozícióXtextbox.TabIndex = 33;
 			this.pozícióXtextbox.Text = "12";
 			this.pozícióXtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -208,7 +273,7 @@ namespace Karesz
 			// 
 			this.időtextbox.Location = new System.Drawing.Point(84, 66);
 			this.időtextbox.Name = "időtextbox";
-			this.időtextbox.Size = new System.Drawing.Size(64, 22);
+			this.időtextbox.Size = new System.Drawing.Size(64, 21);
 			this.időtextbox.TabIndex = 29;
 			this.időtextbox.Text = "0";
 			this.időtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -227,7 +292,7 @@ namespace Karesz
 			// 
 			this.hótextbox.Location = new System.Drawing.Point(84, 604);
 			this.hótextbox.Name = "hótextbox";
-			this.hótextbox.Size = new System.Drawing.Size(64, 22);
+			this.hótextbox.Size = new System.Drawing.Size(64, 21);
 			this.hótextbox.TabIndex = 26;
 			this.hótextbox.Text = "5";
 			this.hótextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -236,7 +301,7 @@ namespace Karesz
 			// 
 			this.sárgatextbox.Location = new System.Drawing.Point(84, 578);
 			this.sárgatextbox.Name = "sárgatextbox";
-			this.sárgatextbox.Size = new System.Drawing.Size(64, 22);
+			this.sárgatextbox.Size = new System.Drawing.Size(64, 21);
 			this.sárgatextbox.TabIndex = 25;
 			this.sárgatextbox.Text = "13";
 			this.sárgatextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -267,7 +332,7 @@ namespace Karesz
 			// 
 			this.zöldtextbox.Location = new System.Drawing.Point(84, 552);
 			this.zöldtextbox.Name = "zöldtextbox";
-			this.zöldtextbox.Size = new System.Drawing.Size(64, 22);
+			this.zöldtextbox.Size = new System.Drawing.Size(64, 21);
 			this.zöldtextbox.TabIndex = 21;
 			this.zöldtextbox.Text = "17";
 			this.zöldtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -276,7 +341,7 @@ namespace Karesz
 			// 
 			this.pirostextbox.Location = new System.Drawing.Point(84, 526);
 			this.pirostextbox.Name = "pirostextbox";
-			this.pirostextbox.Size = new System.Drawing.Size(64, 22);
+			this.pirostextbox.Size = new System.Drawing.Size(64, 21);
 			this.pirostextbox.TabIndex = 20;
 			this.pirostextbox.Text = "10";
 			this.pirostextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -285,7 +350,7 @@ namespace Karesz
 			// 
 			this.feketetextbox.Location = new System.Drawing.Point(84, 501);
 			this.feketetextbox.Name = "feketetextbox";
-			this.feketetextbox.Size = new System.Drawing.Size(64, 22);
+			this.feketetextbox.Size = new System.Drawing.Size(64, 21);
 			this.feketetextbox.TabIndex = 19;
 			this.feketetextbox.Text = "20";
 			this.feketetextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -326,7 +391,7 @@ namespace Karesz
 			// 
 			this.ultrahangtextbox.Location = new System.Drawing.Point(84, 246);
 			this.ultrahangtextbox.Name = "ultrahangtextbox";
-			this.ultrahangtextbox.Size = new System.Drawing.Size(64, 22);
+			this.ultrahangtextbox.Size = new System.Drawing.Size(64, 21);
 			this.ultrahangtextbox.TabIndex = 15;
 			this.ultrahangtextbox.Text = "17";
 			this.ultrahangtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -335,7 +400,7 @@ namespace Karesz
 			// 
 			this.hőtextbox.Location = new System.Drawing.Point(84, 221);
 			this.hőtextbox.Name = "hőtextbox";
-			this.hőtextbox.Size = new System.Drawing.Size(64, 22);
+			this.hőtextbox.Size = new System.Drawing.Size(64, 21);
 			this.hőtextbox.TabIndex = 14;
 			this.hőtextbox.Text = "200";
 			this.hőtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -354,7 +419,7 @@ namespace Karesz
 			this.ultrahanglabel.AutoSize = true;
 			this.ultrahanglabel.Location = new System.Drawing.Point(20, 249);
 			this.ultrahanglabel.Name = "ultrahanglabel";
-			this.ultrahanglabel.Size = new System.Drawing.Size(68, 16);
+			this.ultrahanglabel.Size = new System.Drawing.Size(64, 15);
 			this.ultrahanglabel.TabIndex = 10;
 			this.ultrahanglabel.Text = "Ultrahang:";
 			// 
@@ -363,7 +428,7 @@ namespace Karesz
 			this.hőmérsékletlabel.AutoSize = true;
 			this.hőmérsékletlabel.Location = new System.Drawing.Point(20, 224);
 			this.hőmérsékletlabel.Name = "hőmérsékletlabel";
-			this.hőmérsékletlabel.Size = new System.Drawing.Size(28, 16);
+			this.hőmérsékletlabel.Size = new System.Drawing.Size(26, 15);
 			this.hőmérsékletlabel.TabIndex = 8;
 			this.hőmérsékletlabel.Text = "Hő:";
 			// 
@@ -372,7 +437,7 @@ namespace Karesz
 			this.pozíciólabel.AutoSize = true;
 			this.pozíciólabel.Location = new System.Drawing.Point(20, 202);
 			this.pozíciólabel.Name = "pozíciólabel";
-			this.pozíciólabel.Size = new System.Drawing.Size(57, 16);
+			this.pozíciólabel.Size = new System.Drawing.Size(53, 15);
 			this.pozíciólabel.TabIndex = 6;
 			this.pozíciólabel.Text = "Pozíció: ";
 			// 
@@ -381,7 +446,7 @@ namespace Karesz
 			this.idolabellabel.AutoSize = true;
 			this.idolabellabel.Location = new System.Drawing.Point(20, 69);
 			this.idolabellabel.Name = "idolabellabel";
-			this.idolabellabel.Size = new System.Drawing.Size(63, 16);
+			this.idolabellabel.Size = new System.Drawing.Size(58, 15);
 			this.idolabellabel.TabIndex = 4;
 			this.idolabellabel.Text = "óra ideje:";
 			// 
@@ -492,5 +557,10 @@ namespace Karesz
         private TextBox mivanitttextbox;
         private Label mivanalattamlabel;
         private Label alsokameralabel;
-    }
+		private Button button1;
+		private Button button3;
+		private Button button2;
+		private Button button5;
+		private Button button4;
+	}
 }

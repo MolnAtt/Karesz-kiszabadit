@@ -163,6 +163,15 @@ namespace Karesz
 			}
 			#endregion
 
+			public void Megy()
+			{
+				h += v;
+			}
+			public void Forog(int irany)
+			{
+				
+			}
+
 		}
 	}
 }

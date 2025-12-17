@@ -25,46 +25,8 @@ namespace Karesz
 			{
 				// IDE ÍRD AZ UTASÍTÁSOKAT!
 
-				Lőjj();
-
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj(); Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj(); Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj(); Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj(); Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj(); Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Várj();
-				Lőjj();
-
-				while (true) { Lépj(); }
 			};
 		}
-
 	}
 }
 
